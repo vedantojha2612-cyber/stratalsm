@@ -82,9 +82,7 @@ class TestStrataLSMSecurity(unittest.TestCase):
                 with open(file_path, "r", encoding="utf-8") as fh:
                     for line_no, line in enumerate(fh, 1):
                         for pattern in forbidden_calls:
-                            self.assertIsNone(J                                pattern.search(line),
-                                f"Forbidden execution sink found at {file_path}:{line_no}: {line.strip()}"
-                            )
+                            self.assertIsNone(pattern.search(line), f"Forbidden execution sink found at {file_path}:{line_no}: {line.strip()}")
 
     def test_sstable_corrupted_magic_and_bounds_validation(self):
         """Verify SSTable reader strictly rejects corrupted footers and out-of-bounds offsets."""
@@ -99,7 +97,7 @@ class TestStrataLSMSecurity(unittest.TestCase):
 
             with self.assertRaises(ValueError) as ctx:
                 SSTableReader(corrupt_sst)
-            self.assertIn("Invalid STTable magic", str(ctx.exception))
+            self.assertIn("Invalid SSTable magic", str(ctx.exception))
 
             # 2. Test out-of-bounds index offset
             oob_footer = struct.pack(FOOTER_FORMAT, 999999, 100, 0, 10, 1, SST_MAGIC)
@@ -109,66 +107,11 @@ class TestStrataLSMSecurity(unittest.TestCase):
 
             with self.assertRaises(ValueError) as ctx:
                 SSTableReader(corrupt_sst)
-            self.assertIn("Corrupted SSTable index bounds", str(ctx.exception))
-
-            # 3. Test out-of-bounds bloom offset
-            oob_bloom = struct.pack(FOOTER_FORMAT, 0, 10, 999999, 100, 1, SST_MAGIC)
-            with open(corrupt_sst, "wb") as f:
-                f.write(b"\x00" * 100)
-                f.write(oob_bloom)
-
-            with self.assertRaises(ValueError) as ctx:
-                SSTableReader(corrupt_sst)
-            self.assertIn("Corrupted SSTable bloom bounds", str(ctx.exception))
-
-    def test_wal_crc32_and_torn_write_integrity(self):
-        """Verify WAL handles frame corruption, torn writes, and invalid magic safely."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            wal_file = os.path.join(tmpdir, "secure_test_wal.log")
-            wal = WriteAheadLog(wal_file)
-            entry1 = Entry(b"key1", b"val1", EntryType.PUT, 1000, 1)
-            entry2 = Entry(b"key2", b"val2", EntryType.PUT, 2000, 2)
-            wal.append(entry1)
-            wal.append(entry2)
-            wal.close()
-
-            # Corrupt the second frame by appending garbage bytes
-            with open(wal_file, "a+b") as f:
-                f.write(b"\xWQ‘WQ—W—ÈŠB‚ˆ™XÛİ™\™YH\İ
-Üš]PZXYÙËœ™XÛİ™\ŠØ[Ùš[JJBˆÈš\œİœ˜[YHÚİ[™H™XÛİ™\™YÛÜœ\Yœ˜[YHØY™[HYÛ›Ü™YˆÙ[‹˜\ÜÙ\\]X[
-[Š™XÛİ™\™Y
-KŠBˆÙ[‹˜\ÜÙ\\]X[
-™XÛİ™\™YÌKšÙ^KˆšÙ^LHŠBˆÙ[‹˜\ÜÙ\\]X[
-™XÛİ™\™YÌWKšÙ^KˆšÙ^LˆŠB‚ˆYˆ\İİÙX—ÚYÛİØ\ÜÚXY\œ×Ø[™ÜØ[š]^˜][ÛŠÙ[ŠN‚ˆˆˆ•™\šYH[™Ú[È™]\›ˆ›Ü\ˆÕĞTÔÙXİ\š]HXY\œÈ[™™\Ú\İ]Y\H[š™Xİ[ÛœËˆˆˆ‚ˆÙ\™\ˆH™XYYÙ\™\Š
-ŒLËŒŒŒH‹
-Kİ˜]SÓR[™\ŠBˆÜHÙ\™\‹œÙ\™\—ØY™\ÜÖÌWBˆH™XY[™Ë•™XY
-\™Ù]\Ù\™\‹œÙ\™WÙ›Ü™]™\‹Y[[ÛUYJBˆœİ\
-
-Bˆ[YKœÛY\
-ŒJB‚ˆN‚ˆÈKˆ\İØ\KÜİ]\ÈXY\œÂˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
-ˆš‹ËÌLËŒŒŒNÜÜKØ\KÜİ]\ÈŠBˆÚ]\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊH\È™\Î‚ˆÙ[‹˜\ÜÙ\\]X[
-™\Ëœİ]\ËŒ
-BˆXY\œÈHXİ
-™\ËšXY\œÊBˆÙ[‹˜\ÜÙ\\]X[
-XY\œË™Ù]
-–PÛÛ[U\KSÜ[ÛœÈŠK››ÜÛšY™ˆŠBˆÙ[‹˜\ÜÙ\\]X[
-XY\œË™Ù]
-–Qœ˜[YKSÜ[ÛœÈŠK”ĞSQSÔ’QÒSˆŠBˆÙ[‹˜\ÜÙ\[ŠÛÛ[TÙXİ\š]KTÛXŞH‹XY\œÊBˆÙ[‹˜\ÜÙ\\]X[
-XY\œË™Ù]
-”™Y™\œ™\‹TÛXŞHŠKœİšXİ[ÜšYÚ[‹]Ú[‹XÜ›ÜÜË[ÜšYÚ[ˆŠB‚ˆÈ‹ˆ\İ[š™Xİ[Ûˆ™XİÜœÈÛˆØ\KÜÚ[][]BˆX[XÚ[İ\×İ\›ÈHÂˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYQ“ÔÑUPTÑI˜Ûİ[S˜Sˆ‹ˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYK‹‹Ë‹‹Ù]ËÜ\ÜİÙ	˜Ûİ[KNNNH‹ˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYIL	˜Ûİ[NNNNNNNH‹ˆBˆ›Üˆ\›[ˆX[XÚ[İ\×İ\›Î‚ˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
-\›
-BˆÚ]\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊH\È™\Î‚ˆÙ[‹˜\ÜÙ\\]X[
-™\Ëœİ]\ËŒ
-BˆÙ[‹˜\ÜÙ\[Š˜\XØ][Û‹ÚœÛÛˆ‹™\ËšXY\œË™Ù]
-ÛÛ[U\H‹ˆŠJB‚ˆÈËˆ\İZ\ÜÚ[™È\˜[Y]\œÈÛˆØ\KÜ][™Ø\KÙÙ]ˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
-ˆš‹ËÌLËŒŒŒNÜÜKØ\KÙÙ]ŠBˆN‚ˆ\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊBˆ^Ù\\›X‹™\œ›Ü‹’\œ›Üˆ\ÈN‚ˆÙ[‹˜\ÜÙ\\]X[
-K˜ÛÙK
-B‚ˆš[˜[N‚ˆÙ\™\‹œÚ]İÛŠ
-BˆÙ\™\‹œÙ\™\—ØÛÜÙJ
-B‚ˆYˆ\İİ[œš]š[YÙYÜØY™WÙ^Xİ][ÛŠÙ[ŠN‚ˆˆˆ•™\šYHHİÜ˜YÙH[™Ú[™H[š]X[^™\È[™Ü\˜]\È[ˆ[œš]š[YÙY\Ù\ˆÜXÙKˆˆˆ‚ˆÚ][\š[K•[\Ü˜\Q\™XİÜJ
-H\È\\‚ˆˆHİ˜]SÓJ—Ù\]\\ŠBˆÙ[‹˜\ÜÙ\YJ‹œ]
-[œš]š[YÙYÚÙ^H‹\İİ˜[YHŠJBˆÙ[‹˜\ÜÙ\\]X[
-‹™Ù]
-[œš]š[YÙYÚÙ^HŠKˆ\İİ˜[YHŠBˆ‹˜ÛÜÙJ
-B‚‚šYˆ×Û˜[YW×ÈOH—×ÛXZ[—×È‚ˆ[š]\İ›XZ[Š
-B
+            self.assertIn("Corrupted SSTable index bounds", str(ctx.exceptionŠJB‚ˆÈËˆ\İİ][Ù‹X›İ[™È›ÛÛHÙ™œÙ]ˆÛØ—Ø›ÛÛHHİXİœXÚÊ“ÓÕT—Ñ“Ô“PULNNNNNKLKÔÕÓPQÒPÊBˆÚ]Ü[ŠÛÜœ\ÜÜİØˆŠH\È‚ˆ‹Üš]Jˆ—ˆ
+ˆL
+Bˆ‹Üš]JÛØ—Ø›ÛÛJB‚ˆÚ]Ù[‹˜\ÜÙ\˜Z\Ù\Ê˜[YQ\œ›ÜŠH\Èİ‚ˆÔÕX›T™XY\ŠÛÜœ\ÜÜİ
+BˆÙ[‹˜\ÜÙ\[ŠÛÜœ\YÔÕX›H›ÛÛH›İ[™È‹İŠİ™^Ù\[ÛŠJB‚ˆYˆ\İİØ[ØÜ˜ÌÌ—Ø[™İÜ›—İÜš]WÚ[YÜš]JÙ[ŠN‚ˆˆˆ•™\šYHĞS[™\Èœ˜[YHÛÜœ\[Û‹Ü›ˆÜš]\Ë[™[˜[YXYÚXÈØY™[Kˆˆˆ‚ˆÚ][\š[K•[\Ü˜\Q\™XİÜJ
+H\È\\‚ˆØ[Ùš[HHÜËœ]š›Ú[Š\\‹œÙXİ\™Wİ\İİØ[›ÙÈŠBˆØ[HÜš]PZXYÙÊØ[Ùš[JBˆ[LHH[JˆšÙ^LH‹ˆ˜[H‹[U\K”ULJBˆ[LˆH[JˆšÙ^Lˆ‹ˆ˜[ˆ‹[U\K”UŒŠBˆØ[˜\[™
+[LJBˆØ[˜\[™
+[LŠBˆØ[˜ÛÜÙJ
+B‚ˆÈÛÜœ\HÙXÛÛ™œ˜[YHH\[™[™ÈØ\˜˜YÙH]\ÂˆÚ]Ü[ŠØ[Ùš[K˜JØˆŠH\È‚ˆ‹Üš]Jˆ—DUÇ„EÇ„$UÇ„TeÇƒÇƒÇƒ%Çƒ2" ¢&V6÷fW&VBÒÆ—7B…w&—FT†VDÆörç&V6÷fW"‡vÅöf–ÆR’¢2f—'7Bg&ÖR6†÷VÆB&R&V6÷fW&VBÂ6÷''WFVBg&ÖR6fVÇ’–væ÷&V@¢6VÆbæ76W'DWVÂ†ÆVâ‡&V6÷fW&VB’Â"¢6VÆbæ76W'DWVÂ‡&V6÷fW&VE³Òæ¶W’Â"&¶W“"¢6VÆbæ76W'DWVÂ‡&V6÷fW&VE³Òæ¶W’Â"&¶W“"" ¢FVbFW7E÷vV%ö‡VEö÷v7ö†VFW'5öæE÷6æ—F—¦F–öâ‡6VÆb“ ¢""%fW&–g’…EEVæGö–çG2&WGW&â&÷W"õt56V7W&—G’†VFW'2æB&W6—7BVW'’–æ¦V7F–öç2â"" ¢6W'fW"ÒF‡&VFVD…EE6W'fW"‚‚##rããã"Â’Â7G&FÅ4Ô…EE†æFÆW"¢÷'BÒ6W'fW"ç6W'fW%öFG&W75³Ğ¢BÒF‡&VF–æråF‡&VB‡F&vWC×6W'fW"ç6W'fUöf÷&WfW"ÂFVÖöãÕG'VR¢Bç7F'B‚¢F–ÖRç6ÆVWƒã ¢G'“ ¢2âFW7Bö’÷7FGW2†VFW'0¢&WÒW&ÆÆ–"ç&WVW7Bå&WVW7B†b&‡GG¢òó#rããã§·÷'GÒö’÷7FGW2"¢v—F‚W&ÆÆ–"ç&WVW7BçW&Æ÷Vâ‡&WÂF–ÖV÷WCÓ2’2&W3 ¢6VÆbæ76W'DWVÂ‡&W2ç7FGW2Â#¢†VFW'2ÒF–7B‡&W2æ†VFW'2¢6VÆbæ76W'DWVÂ††VFW'2ævWB‚%‚Ô6öçFVçBÕG—RÔ÷F–öç2"’Â&æ÷6æ–fb"¢6VÆbæ76W'DWVÂ††VFW'2ævWB‚%‚Ôg&ÖRÔ÷F–öç2"’Â%4ÔTõ$”t”â"¢6VÆbæ76W'D–â‚$6öçFVçBÕ6V7W&—G’ÕöÆ–7’"Â†VFW'2¢6VÆbæ76W'DWVÂ††VFW'2ævWB‚%&VfW'&W"ÕöÆ–7’"’Â'7G&–7BÖ÷&–v–â×v†VâÖ7&÷72Ö÷&–v–â" ¢2"âFW7B–æ¦V7F–öâfV7F÷'2öâö’÷6–×VÆFP¢ÖÆ–6–÷W5÷W&Ç2Ò°¢b&‡GG¢òó#rããã§·÷'GÒö’÷6–×VÆFS÷v÷&¶ÆöCÔE$õôDD$4Rf6÷VçCÔæâ"À¢b&‡GG¢òó#rããã§·÷'GÒö’÷6–×VÆFS÷v÷&¶ÆöCÒââòââöWF2÷77vBf6÷VçCÒÓ““’"À¢b&‡GG¢òó#rããã§·÷'GÒö’÷6–×VÆFS÷v÷&¶ÆöCÒSf6÷VçCÓ““““““’"À¢Ğ¢f÷"W&Â–âÖÆ–6–÷W5÷W&Ç3 ¢&WÒW&ÆÆ–"ç&WVW7Bå&WVW7B‡W&Â¢v—F‚W&ÆÆ–"ç&WVW7BçW&Æ÷Vâ‡&WÂF–ÖV÷WCÓ2’2&W3 ¢6VÆbæ76W'DWVÂ‡&W2ç7FGW2Â#¢6VÆbæ76W'D–â‚&Æ–6F–öâö§6öâ"Â&W2æ†VFW'2ævWB‚$6öçFVçBÕG—R"Â""’ ¢22âFW7BÖ—76–ær&ÖWFW'2öâö’÷WBæBö’övW@¢&WÒW&ÆÆ–"ç&WVW7Bå&WVW7B†b&‡GG¢òó#rããã§·÷'GÒö’övWB"¢G'“ ¢W&ÆÆ–"ç&WVW7BçW&Æ÷Vâ‡&WÂF–ÖV÷WCÓ2¢W†6WBW&ÆÆ–"æW'&÷"ä…EEW'&÷"2S ¢6VÆbæ76W'DWVÂ†Ræ6öFRÂC ¢f–æÆÇ“ ¢6W'fW"ç6‡WFF÷vâ‚¢6W'fW"ç6W'fW%ö6Æ÷6R‚ ¢FVbFW7E÷Vç&—f–ÆVvVE÷6fUöW†V7WF–öâ‡6VÆb“ ¢""%fW&–g’F†R7F÷&vRVæv–æR–æ—F–Æ—¦W2æB÷W&FW2–âVç&—f–ÆVvVBW6W"76Râ"" ¢v—F‚FV×f–ÆRåFV×÷&'”F—&V7F÷'’‚’2F×F—# ¢F"Ò7G&FÅ4Ò†F%öF—#×F×F—"¢6VÆbæ76W'EG'VR†F"çWB‚'Vç&—f–ÆVvVEö¶W’"Â'FW7E÷fÇVR"’¢6VÆbæ76W'DWVÂ†F"ævWB‚'Vç&—f–ÆVvVEö¶W’"’Â"'FW7E÷fÇVR"¢F"æ6Æ÷6R‚  ¦–bõöæÖUõòÓÒ%õöÖ–åõò# ¢Væ—GFW7BæÖ–â‚

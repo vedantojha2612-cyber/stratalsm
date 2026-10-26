@@ -70,8 +70,8 @@ class TestStrataLSMWebServer(unittest.TestCase):
     def setUpClass(cls):
         cls.test_db_dir = "/tmp/test_stratalsm_web_unit"
         StrataLSMHTTPHandler.get_or_create_engine(db_dir=cls.test_db_dir)
-        cls.port = 9244
-        cls.httpd = ThreadedHTTPServer(("127.0.0.1", cls.port), StrataLSMHTTPHandler)
+        cls.httpd = ThreadedHTTPServer(("127.0.0.1", 0), StrataLSMHTTPHandler)
+        cls.port = cls.httpd.server_address[1]
         cls.thread = threading.Thread(target=cls.httpd.serve_forever, daemon=True)
         cls.thread.start()
         time.sleep(0.1)
