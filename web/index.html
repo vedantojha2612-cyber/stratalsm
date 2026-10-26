@@ -1,1 +1,1028 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wIj4KICA8dGl0bGU+U3RyYXRhTFNNIC8vIDNEIExTTS1UcmVlIFN0b3JhZ2UgRW5naW5lICYgQ29tcGFjdGlvbiBDYXNjYWRlIEhvbG9ncmFtPC90aXRsZT4KICA8c3R5bGU+CiAgICA6cm9vdCB7CiAgICAgIC0tYmctc3BhY2U6ICMwNzA5MGU7CiAgICAgIC0tYmctcGFuZWw6IHJnYmEoMTMsIDE4LCAzMCwgMC44Mik7CiAgICAgIC0tYmctcGFuZWwtYm9yZGVyOiByZ2JhKDAsIDI0MywgMjU1LCAwLjIyKTsKICAgICAgLS1jeWFuOiAjMDBmM2ZmOwogICAgICAtLWN5YW4tZ2xvdzogcmdiYSgwLCAyNDMsIDI1NSwgMC40KTsKICAgICAgLS1uZW9uLWdyZWVuOiAjMDBmZjg4OwogICAgICAtLWFtYmVyOiAjZmZhYTAwOwogICAgICAtLWNyaW1zb246ICNmZjAwNTU7CiAgICAgIC0tdmlvbGV0OiAjNzAwMGZmOwogICAgICAtLWF6dXJlOiAjMDA3N2ZmOwogICAgICAtLWdvbGQ6ICNmZmQ3MDA7CiAgICAgIC0tc2xhdGU6ICM5NGEzYjg7CiAgICAgIC0tdGV4dDogI2Y4ZmFmYzsKICAgICAgLS1mb250LW1vbm86ICdKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCAnU0YgTW9ubycsIENvbnNvbGFzLCBtb25vc3BhY2U7CiAgICB9CgogICAgKiB7CiAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgIG1hcmdpbjogMDsKICAgICAgcGFkZGluZzogMDsKICAgICAgdXNlci1zZWxlY3Q6IG5vbmU7CiAgICB9CgogICAgYm9keSwgaHRtbCB7CiAgICAgIHdpZHRoOiAxMDAlOwogICAgICBoZWlnaHQ6IDEwMCU7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWJnLXNwYWNlKTsKICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWZvbnQtbW9ubyk7CiAgICAgIGNvbG9yOiB2YXIoLS10ZXh0KTsKICAgIH0KCiAgICAjd2ViZ2wtY29udGFpbmVyIHsKICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICB0b3A6IDA7CiAgICAgIGxlZnQ6IDA7CiAgICAgIHdpZHRoOiAxMDAlOwogICAgICBoZWlnaHQ6IDEwMCU7CiAgICAgIHotaW5kZXg6IDE7CiAgICB9CgogICAgLyogQ3liZXJwdW5rIEdyaWQgQmFja2dyb3VuZCBPdmVybGF5ICovCiAgICAuc3BhY2UtZ3JpZCB7CiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgdG9wOiAwOwogICAgICBsZWZ0OiAwOwogICAgICB3aWR0aDogMTAwJTsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICBwb2ludGVyLWV2ZW50czogbm9uZTsKICAgICAgei1pbmRleDogMjsKICAgICAgYmFja2dyb3VuZDogCiAgICAgICAgcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCA1MCUgNTAlLCByZ2JhKDAsIDI0MywgMjU1LCAwLjA0KSAwJSwgdHJhbnNwYXJlbnQgNzAlKSwKICAgICAgICBsaW5lYXItZ3JhZGllbnQocmdiYSgwLCAyNDMsIDI1NSwgMC4wMikgMXB4LCB0cmFuc3BhcmVudCAxcHgpLAogICAgICAgIGxpbmVhci1ncmFkaWVudCg5MGRlZywgcmdiYSgwLCAyNDMsIDI1NSwgMC4wMikgMXB4LCB0cmFuc3BhcmVudCAxcHgpOwogICAgICBiYWNrZ3JvdW5kLXNpemU6IDEwMCUgMTAwJSwgNDhweCA0OHB4LCA0OHB4IDQ4cHg7CiAgICB9CgogICAgLyogVG9wIEhVRCBOYXZpZ2F0aW9uIEJhciAqLwogICAgaGVhZGVyIHsKICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICB0b3A6IDE2cHg7CiAgICAgIGxlZnQ6IDIwcHg7CiAgICAgIHJpZ2h0OiAyMHB4OwogICAgICBoZWlnaHQ6IDY0cHg7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWJnLXBhbmVsKTsKICAgICAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDE0cHgpOwogICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1iZy1wYW5lbC1ib3JkZXIpOwogICAgICBib3JkZXItcmFkaXVzOiAxMnB4OwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47CiAgICAgIHBhZGRpbmc6IDAgMjRweDsKICAgICAgei1pbmRleDogMTA7CiAgICAgIGJveC1zaGFkb3c6IDAgOHB4IDMycHggcmdiYSgwLCAwLCAwLCAwLjYpLCBpbnNldCAwIDFweCAwIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKTsKICAgIH0KCiAgICAuYnJhbmQgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBnYXA6IDE0cHg7CiAgICB9CgogICAgLmJyYW5kLWxvZ28gewogICAgICB3aWR0aDogMzZweDsKICAgICAgaGVpZ2h0OiAzNnB4OwogICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCB2YXIoLS1jeWFuKSwgdmFyKC0tdmlvbGV0KSk7CiAgICAgIGJvcmRlci1yYWRpdXM6IDhweDsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgIGJveC1zaGFkb3c6IDAgMCAxNnB4IHZhcigtLWN5YW4tZ2xvdyk7CiAgICB9CgogICAgLmJyYW5kLWxvZ28gc3ZnIHsKICAgICAgd2lkdGg6IDIycHg7CiAgICAgIGhlaWdodDogMjJweDsKICAgICAgZmlsbDogbm9uZTsKICAgICAgc3Ryb2tlOiAjZmZmOwogICAgICBzdHJva2Utd2lkdGg6IDI7CiAgICAgIHN0cm9rZS1saW5lY2FwOiByb3VuZDsKICAgICAgc3Ryb2tlLWxpbmVqb2luOiByb3VuZDsKICAgIH0KCiAgICAuYnJhbmQtdGl0bGUgewogICAgICBmb250LXNpemU6IDE4cHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA4MDA7CiAgICAgIGxldHRlci1zcGFjaW5nOiAycHg7CiAgICAgIGNvbG9yOiAjZmZmOwogICAgfQoKICAgIC5icmFuZC10aXRsZSBzcGFuIHsKICAgICAgY29sb3I6IHZhcigtLWN5YW4pOwogICAgfQoKICAgIC5zdGF0dXMtYmFkZ2UgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBnYXA6IDZweDsKICAgICAgcGFkZGluZzogNHB4IDEwcHg7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMjU1LCAxMzYsIDAuMSk7CiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMCwgMjU1LCAxMzYsIDAuMyk7CiAgICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7CiAgICAgIGZvbnQtc2l6ZTogMTBweDsKICAgICAgZm9udC13ZWlnaHQ6IDYwMDsKICAgICAgY29sb3I6IHZhcigtLW5lb24tZ3JlZW4pOwogICAgICBsZXR0ZXItc3BhY2luZzogMC44cHg7CiAgICB9CgogICAgLnN0YXR1cy1kb3QgewogICAgICB3aWR0aDogNnB4OwogICAgICBoZWlnaHQ6IDZweDsKICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1uZW9uLWdyZWVuKTsKICAgICAgYm94LXNoYWRvdzogMCAwIDhweCB2YXIoLS1uZW9uLWdyZWVuKTsKICAgICAgYW5pbWF0aW9uOiBwdWxzZSAxLjhzIGluZmluaXRlOwogICAgfQoKICAgIEBrZXlmcmFtZXMgcHVsc2UgewogICAgICAwJSwgMTAwJSB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogc2NhbGUoMSk7IH0KICAgICAgNTAlIHsgb3BhY2l0eTogMC40OyB0cmFuc2Zvcm06IHNjYWxlKDAuODUpOyB9CiAgICB9CgogICAgLnRlbGVtZXRyeS1waWxscyB7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgIGdhcDogMThweDsKICAgIH0KCiAgICAucGlsbCB7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDsKICAgIH0KCiAgICAucGlsbC1sYWJlbCB7CiAgICAgIGZvbnQtc2l6ZTogOXB4OwogICAgICBjb2xvcjogdmFyKC0tc2xhdGUpOwogICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwogICAgICBsZXR0ZXItc3BhY2luZzogMXB4OwogICAgfQoKICAgIC5waWxsLXZhbHVlIHsKICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgICBmb250LXdlaWdodDogNzAwOwogICAgICBjb2xvcjogI2ZmZjsKICAgIH0KCiAgICAucGlsbC12YWx1ZS5jeWFuIHsgY29sb3I6IHZhcigtLWN5YW4pOyB9CiAgICAucGlsbC12YWx1ZS5ncmVlbiB7IGNvbG9yOiB2YXIoLS1uZW9uLWdyZWVuKTsgfQogICAgLnBpbGwtdmFsdWUuYW1iZXIgeyBjb2xvcjogdmFyKC0tYW1iZXIpOyB9CiAgICAucGlsbC12YWx1ZS5jcmltc29uIHsgY29sb3I6IHZhcigtLWNyaW1zb24pOyB9CiAgICAucGlsbC12YWx1ZS5nb2xkIHsgY29sb3I6IHZhcigtLWdvbGQpOyB9CgogICAgLyogTGVmdCBTaWRlYmFyOiBTdG9yYWdlIFN0cmF0YSBIaWVyYXJjaHkgKi8KICAgIC5sZWZ0LXBhbmVsIHsKICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICB0b3A6IDk2cHg7CiAgICAgIGxlZnQ6IDIwcHg7CiAgICAgIHdpZHRoOiAzMjBweDsKICAgICAgYm90dG9tOiA5NnB4OwogICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1iZy1wYW5lbCk7CiAgICAgIGJhY2tkcm9wLWZpbHRlcjogYmx1cigxNHB4KTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tYmctcGFuZWwtYm9yZGVyKTsKICAgICAgYm9yZGVyLXJhZGl1czogMTJweDsKICAgICAgcGFkZGluZzogMThweDsKICAgICAgei1pbmRleDogMTA7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGdhcDogMTZweDsKICAgICAgb3ZlcmZsb3cteTogYXV0bzsKICAgICAgYm94LXNoYWRvdzogMCA4cHggMzJweCByZ2JhKDAsIDAsIDAsIDAuNik7CiAgICB9CgogICAgLnBhbmVsLXRpdGxlIHsKICAgICAgZm9udC1zaXplOiAxMXB4OwogICAgICBmb250LXdlaWdodDogNzAwOwogICAgICBjb2xvcjogdmFyKC0tY3lhbik7CiAgICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7CiAgICAgIGxldHRlci1zcGFjaW5nOiAxLjVweDsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOwogICAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgwLCAyNDMsIDI1NSwgMC4xNSk7CiAgICAgIHBhZGRpbmctYm90dG9tOiA4cHg7CiAgICB9CgogICAgLnN0cmF0YS10aWVyLWNhcmQgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAgICBnYXA6IDZweDsKICAgICAgcGFkZGluZzogMTBweCAxMnB4OwogICAgICBib3JkZXItcmFkaXVzOiA4cHg7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wMik7CiAgICAgIGJvcmRlci1sZWZ0OiAzcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTsKICAgIH0KCiAgICAuc3RyYXRhLXRpZXItY2FyZDpob3ZlciB7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMjQzLCAyNTUsIDAuMDgpOwogICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMnB4KTsKICAgIH0KCiAgICAuc3RyYXRhLXRpZXItY2FyZC5tZW10YWJsZSB7IGJvcmRlci1jb2xvcjogdmFyKC0tY3lhbik7IH0KICAgIC5zdHJhdGEtdGllci1jYXJkLmwwIHsgYm9yZGVyLWNvbG9yOiB2YXIoLS1hbWJlcik7IH0KICAgIC5zdHJhdGEtdGllci1jYXJkLmwxIHsgYm9yZGVyLWNvbG9yOiB2YXIoLS1uZW9uLWdyZWVuKTsgfQogICAgLnN0cmF0YS10aWVyLWNhcmQubDIgeyBib3JkZXItY29sb3I6IHZhcigtLXZpb2xldCk7IH0KICAgIC5zdHJhdGEtdGllci1jYXJkLmwzIHsgYm9yZGVyLWNvbG9yOiB2YXIoLS1henVyZSk7IH0KCiAgICAudGllci1oZWFkZXIgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47CiAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgIGZvbnQtc2l6ZTogMTFweDsKICAgICAgZm9udC13ZWlnaHQ6IDcwMDsKICAgIH0KCiAgICAudGllci1zYXQtYmFyIHsKICAgICAgaGVpZ2h0OiA2cHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDNweDsKICAgICAgYmFja2dyb3VuZDogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA4KTsKICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgICAgbWFyZ2luLXRvcDogNHB4OwogICAgfQoKICAgIC50aWVyLXNhdC1maWxsIHsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICBib3JkZXItcmFkaXVzOiAzcHg7CiAgICAgIHRyYW5zaXRpb246IHdpZHRoIDAuM3MgZWFzZTsKICAgIH0KCiAgICAuZ2F1Z2UtY29udGFpbmVyIHsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgZ2FwOiA4cHg7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC4zNSk7CiAgICAgIHBhZGRpbmc6IDEycHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDhweDsKICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KTsKICAgIH0KCiAgICAuZ2F1Z2UtaGVhZGVyIHsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOwogICAgICBmb250LXNpemU6IDEwcHg7CiAgICB9CgogICAgLyogUmlnaHQgU2lkZWJhcjogTGl2ZSBEQiBDb25zb2xlICYgRXZlbnRzICovCiAgICAucmlnaHQtcGFuZWwgewogICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgIHRvcDogOTZweDsKICAgICAgcmlnaHQ6IDIwcHg7CiAgICAgIHdpZHRoOiAzNDBweDsKICAgICAgYm90dG9tOiA5NnB4OwogICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1iZy1wYW5lbCk7CiAgICAgIGJhY2tkcm9wLWZpbHRlcjogYmx1cigxNHB4KTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tYmctcGFuZWwtYm9yZGVyKTsKICAgICAgYm9yZGVyLXJhZGl1czogMTJweDsKICAgICAgcGFkZGluZzogMThweDsKICAgICAgei1pbmRleDogMTA7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGdhcDogMTZweDsKICAgICAgb3ZlcmZsb3cteTogYXV0bzsKICAgICAgYm94LXNoYWRvdzogMCA4cHggMzJweCByZ2JhKDAsIDAsIDAsIDAuNik7CiAgICB9CgogICAgLmNvbnNvbGUtaW5wdXQtZ3JvdXAgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBnYXA6IDZweDsKICAgICAgbWFyZ2luLXRvcDogNnB4OwogICAgfQoKICAgIC5jeWJlci1pbnB1dCB7CiAgICAgIGZsZXg6IDE7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAyNDMsIDI1NSwgMC4zKTsKICAgICAgYm9yZGVyLXJhZGl1czogNnB4OwogICAgICBjb2xvcjogI2ZmZjsKICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWZvbnQtbW9ubyk7CiAgICAgIGZvbnQtc2l6ZTogMTFweDsKICAgICAgcGFkZGluZzogOHB4IDEwcHg7CiAgICAgIG91dGxpbmU6IG5vbmU7CiAgICAgIHRyYW5zaXRpb246IGJvcmRlci1jb2xvciAwLjJzIGVhc2U7CiAgICB9CgogICAgLmN5YmVyLWlucHV0OmZvY3VzIHsKICAgICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1jeWFuKTsKICAgICAgYm94LXNoYWRvdzogMCAwIDhweCByZ2JhKDAsIDI0MywgMjU1LCAwLjMpOwogICAgfQoKICAgIC5jeWJlci1idG4gewogICAgICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDI0MywgMjU1LCAwLjEyKTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tY3lhbik7CiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgICAgY29sb3I6IHZhcigtLWN5YW4pOwogICAgICBmb250LWZhbWlseTogdmFyKC0tZm9udC1tb25vKTsKICAgICAgZm9udC1zaXplOiAxMXB4OwogICAgICBmb250LXdlaWdodDogNzAwOwogICAgICBwYWRkaW5nOiA4cHggMTRweDsKICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlOwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgZ2FwOiA0cHg7CiAgICB9CgogICAgLmN5YmVyLWJ0bjpob3ZlciB7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWN5YW4pOwogICAgICBjb2xvcjogIzAwMDsKICAgICAgYm94LXNoYWRvdzogMCAwIDEycHggdmFyKC0tY3lhbi1nbG93KTsKICAgIH0KCiAgICAuY3liZXItYnRuLmFtYmVyIHsKICAgICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1hbWJlcik7CiAgICAgIGNvbG9yOiB2YXIoLS1hbWJlcik7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAxNzAsIDAsIDAuMTIpOwogICAgfQogICAgLmN5YmVyLWJ0bi5hbWJlcjpob3ZlciB7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWFtYmVyKTsKICAgICAgY29sb3I6ICMwMDA7CiAgICB9CgogICAgLmN5YmVyLWJ0bi5ncmVlbiB7CiAgICAgIGJvcmRlci1jb2xvcjogdmFyKC0tbmVvbi1ncmVlbik7CiAgICAgIGNvbG9yOiB2YXIoLS1uZW9uLWdyZWVuKTsKICAgICAgYmFja2dyb3VuZDogcmdiYSgwLCAyNTUsIDEzNiwgMC4xMik7CiAgICB9CiAgICAuY3liZXItYnRuLmdyZWVuOmhvdmVyIHsKICAgICAgYmFja2dyb3VuZDogdmFyKC0tbmVvbi1ncmVlbik7CiAgICAgIGNvbG9yOiAjMDAwOwogICAgfQoKICAgIC53b3JrbG9hZC1ncmlkIHsKICAgICAgZGlzcGxheTogZ3JpZDsKICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMiwgMWZyKTsKICAgICAgZ2FwOiA2cHg7CiAgICAgIG1hcmdpbi10b3A6IDRweDsKICAgIH0KCiAgICAud29ya2xvYWQtYnRuIHsKICAgICAgZm9udC1zaXplOiAxMHB4OwogICAgICBwYWRkaW5nOiA2cHggOHB4OwogICAgICBib3JkZXItcmFkaXVzOiA2cHg7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCk7CiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKTsKICAgICAgY29sb3I6IHZhcigtLXNsYXRlKTsKICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICBmb250LWZhbWlseTogdmFyKC0tZm9udC1tb25vKTsKICAgICAgZm9udC13ZWlnaHQ6IDYwMDsKICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlOwogICAgfQoKICAgIC53b3JrbG9hZC1idG46aG92ZXIsIC53b3JrbG9hZC1idG4uYWN0aXZlIHsKICAgICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1jeWFuKTsKICAgICAgY29sb3I6IHZhcigtLWN5YW4pOwogICAgICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDI0MywgMjU1LCAwLjEpOwogICAgfQoKICAgIC5ldmVudHMtbG9nIHsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgZ2FwOiA2cHg7CiAgICAgIG1heC1oZWlnaHQ6IDE2MHB4OwogICAgICBvdmVyZmxvdy15OiBhdXRvOwogICAgICBmb250LXNpemU6IDEwcHg7CiAgICB9CgogICAgLmV2ZW50LWl0ZW0gewogICAgICBwYWRkaW5nOiA2cHggOHB4OwogICAgICBib3JkZXItcmFkaXVzOiA0cHg7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC4zNSk7CiAgICAgIGJvcmRlci1sZWZ0OiAycHggc29saWQgdmFyKC0tY3lhbik7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGdhcDogMnB4OwogICAgfQoKICAgIC8qIEJvdHRvbSBEb2NrOiBDYW1lcmEgJiBQbGF5YmFjayAqLwogICAgZm9vdGVyIHsKICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICBib3R0b206IDIwcHg7CiAgICAgIGxlZnQ6IDUwJTsKICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpOwogICAgICBoZWlnaHQ6IDUycHg7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWJnLXBhbmVsKTsKICAgICAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDE0cHgpOwogICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1iZy1wYW5lbC1ib3JkZXIpOwogICAgICBib3JkZXItcmFkaXVzOiAyNnB4OwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBnYXA6IDEycHg7CiAgICAgIHBhZGRpbmc6IDAgMjBweDsKICAgICAgei1pbmRleDogMTA7CiAgICAgIGJveC1zaGFkb3c6IDAgOHB4IDMycHggcmdiYSgwLCAwLCAwLCAwLjYpOwogICAgfQoKICAgIC5kb2NrLWJ0biB7CiAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgICBib3JkZXI6IG5vbmU7CiAgICAgIGNvbG9yOiB2YXIoLS1zbGF0ZSk7CiAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1mb250LW1vbm8pOwogICAgICBmb250LXNpemU6IDExcHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7CiAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICBib3JkZXItcmFkaXVzOiAxNnB4OwogICAgICBjdXJzb3I6IHBvaW50ZXI7CiAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgIGdhcDogNnB4OwogICAgfQoKICAgIC5kb2NrLWJ0bjpob3ZlciwgLmRvY2stYnRuLmFjdGl2ZSB7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMjQzLCAyNTUsIDAuMTUpOwogICAgICBjb2xvcjogdmFyKC0tY3lhbik7CiAgICB9CgogICAgLyogUmF5Y2FzdGluZyBIb2xvZ3JhcGhpYyBUb29sdGlwICovCiAgICAjdG9vbHRpcCB7CiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgZGlzcGxheTogbm9uZTsKICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMTAsIDE2LCAyNiwgMC45NCk7CiAgICAgIGJhY2tkcm9wLWZpbHRlcjogYmx1cigxNHB4KTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tY3lhbik7CiAgICAgIGJveC1zaGFkb3c6IDAgMCAyMHB4IHJnYmEoMCwgMjQzLCAyNTUsIDAuMzUpOwogICAgICBib3JkZXItcmFkaXVzOiA4cHg7CiAgICAgIHBhZGRpbmc6IDEycHg7CiAgICAgIHotaW5kZXg6IDEwMDsKICAgICAgZm9udC1zaXplOiAxMXB4OwogICAgICBsaW5lLWhlaWdodDogMS41OwogICAgICBtaW4td2lkdGg6IDIyMHB4OwogICAgfQoKICAgICN0b29sdGlwIC50dC10aXRsZSI+CiAgICAgIGZvbnQtd2VpZ2h0OiA4MDA7CiAgICAgIGNvbG9yOiB2YXIoLS1jeWFuKTsKICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwgMjQzLCAyNTUsIDAuMik7CiAgICAgIHBhZGRpbmctYm90dG9tOiA0cHg7CiAgICAgIG1hcmdpbi1ib3R0b206IDZweDsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47CiAgICB9CiAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICA8ZGl2IGlkPSJ3ZWJnbC1jb250YWluZXIiPjwvZGl2Pgo8L2JvZHk+CjwvaHRtbD4=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StrataLSM // 3D LSM-Tree Storage Engine & Compaction Cascade Hologram</title>
+  <style>
+    :root {
+      --bg-space: #07090e;
+      --bg-panel: rgba(13, 18, 30, 0.82);
+      --bg-panel-border: rgba(0, 243, 255, 0.22);
+      --cyan: #00f3ff;
+      --cyan-glow: rgba(0, 243, 255, 0.4);
+      --neon-green: #00ff88;
+      --amber: #ffaa00;
+      --crimson: #ff0055;
+      --violet: #7000ff;
+      --azure: #0077ff;
+      --gold: #ffd700;
+      --slate: #94a3b8;
+      --text: #f8fafc;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg-space);
+      font-family: var(--font-mono);
+      color: var(--text);
+    }
+
+    #webgl-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Cyberpunk Grid Background Overlay */
+    .space-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 243, 255, 0.04) 0%, transparent 70%),
+        linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Top HUD Navigation Bar */
+    header {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      right: 20px;
+      height: 64px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    .brand-logo svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .brand-title span {
+      color: var(--cyan);
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--neon-green);
+      letter-spacing: 0.8px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neon-green);
+      box-shadow: 0 0 8px var(--neon-green);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .telemetry-pills {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .pill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .pill-label {
+      font-size: 9px;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pill-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .pill-value.cyan { color: var(--cyan); }
+    .pill-value.green { color: var(--neon-green); }
+    .pill-value.amber { color: var(--amber); }
+    .pill-value.crimson { color: var(--crimson); }
+    .pill-value.gold { color: var(--gold); }
+
+    /* Left Sidebar: Storage Strata Hierarchy */
+    .left-panel {
+      position: absolute;
+      top: 96px;
+      left: 20px;
+      width: 320px;
+      bottom: 96px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      padding: 18px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .panel-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+      padding-bottom: 8px;
+    }
+
+    .strata-tier-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .strata-tier-card:hover {
+      background: rgba(0, 243, 255, 0.08);
+      transform: translateX(2px);
+    }
+
+    .strata-tier-card.memtable { border-color: var(--cyan); }
+    .strata-tier-card.l0 { border-color: var(--amber); }
+    .strata-tier-card.l1 { border-color: var(--neon-green); }
+    .strata-tier-card.l2 { border-color: var(--violet); }
+    .strata-tier-card.l3 { border-color: var(--azure); }
+
+    .tier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .tier-sat-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .tier-sat-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .gauge-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .gauge-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+    }
+
+    /* Right Sidebar: Live DB Console & Events */
+    .right-panel {
+      position: absolute;
+      top: 96px;
+      right: 20px;
+      width: 340px;
+      bottom: 96px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      padding: 18px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .console-input-group {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .cyber-input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      border-radius: 6px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 8px 10px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .cyber-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+    }
+
+    .cyber-btn {
+      background: rgba(0, 243, 255, 0.12);
+      border: 1px solid var(--cyan);
+      border-radius: 6px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .cyber-btn:hover {
+      background: var(--cyan);
+      color: #000;
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+
+    .cyber-btn.amber {
+      border-color: var(--amber);
+      color: var(--amber);
+      background: rgba(255, 170, 0, 0.12);
+    }
+    .cyber-btn.amber:hover {
+      background: var(--amber);
+      color: #000;
+    }
+
+    .cyber-btn.green {
+      border-color: var(--neon-green);
+      color: var(--neon-green);
+      background: rgba(0, 255, 136, 0.12);
+    }
+    .cyber-btn.green:hover {
+      background: var(--neon-green);
+      color: #000;
+    }
+
+    .workload-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .workload-btn {
+      font-size: 10px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--slate);
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .workload-btn:hover, .workload-btn.active {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(0, 243, 255, 0.1);
+    }
+
+    .events-log {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 160px;
+      overflow-y: auto;
+      font-size: 10px;
+    }
+
+    .event-item {
+      padding: 6px 8px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      border-left: 2px solid var(--cyan);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    /* Bottom Dock: Camera & Playback */
+    footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 52px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 20px;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .dock-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dock-btn:hover, .dock-btn.active {
+      background: rgba(0, 243, 255, 0.15);
+      color: var(--cyan);
+    }
+
+    /* Raycasting Holographic Tooltip */
+    #tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      background: rgba(10, 16, 26, 0.94);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+      border-radius: 8px;
+      padding: 12px 16px;
+      z-index: 100;
+      font-size: 11px;
+      line-height: 1.5;
+      min-width: 220px;
+    }
+
+    #tooltip .tt-title {
+      font-weight: 800;
+      color: var(--cyan);
+      border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WebGL 3D Canvas Container -->
+  <div id="webgl-container"></div>
+  <div class="space-grid"></div>
+
+  <!-- Top HUD Bar -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16M7 6v12M17 6v12"/></svg>
+      </div>
+      <div class="brand-title">STRATA<span>LSM</span></div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>3D STORAGE ENGINE ONLINE</span>
+      </div>
+    </div>
+
+    <div class="telemetry-pills">
+      <div class="pill">
+        <div class="pill-label">Sequence Clock</div>
+        <div class="pill-value gold" id="hud-seq">#0000</div>
+      </div>
+      <div class="pill">
+        <div class="pill-label">MemTable Utilization</div>
+        <div class="pill-value cyan" id="hud-mem">0 B / 32 KB</div>
+      </div>
+      <div class="pill">
+        <div class="pill-label">Write Amplification</div>
+        <div class="pill-value green" id="hud-wa">1.00x</div>
+      </div>
+      <div class="pill">
+        <div class="pill-label">Disk Footprint</div>
+        <div class="pill-value" id="hud-disk">0 KB</div>
+      </div>
+      <div class="pill">
+        <div class="pill-label">Compactions Completed</div>
+        <div class="pill-value green" id="hud-compactions">0 Runs</div>
+      </div>
+      <div class="pill">
+        <div class="pill-label">Tombstones Purged</div>
+        <div class="pill-value crimson" id="hud-tombstones">0 Keys</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Left Sidebar: Storage Strata Hierarchy -->
+  <aside class="left-panel">
+    <div class="panel-title">
+      <span>Storage Strata Levels</span>
+      <span style="font-size: 10px; color: var(--slate);">LSM CATHEDRAL</span>
+    </div>
+
+    <div class="strata-tier-card memtable" onclick="focusTier(6.0)">
+      <div class="tier-header">
+        <span style="color: var(--cyan);">▲ MemTable (SkipList Core)</span>
+        <span id="tier-mem-val" style="color: #fff;">0 keys</span>
+      </div>
+      <div class="tier-sat-bar">
+        <div class="tier-sat-fill" id="sat-mem" style="width: 0%; background: var(--cyan);"></div>
+      </div>
+    </div>
+
+    <div class="strata-tier-card l0" onclick="focusTier(2.5)">
+      <div class="tier-header">
+        <span style="color: var(--amber);">■ Level 0 (Immutable Buffer)</span>
+        <span id="tier-l0-val" style="color: #fff;">0 files</span>
+      </div>
+      <div class="tier-sat-bar">
+        <div class="tier-sat-fill" id="sat-l0" style="width: 0%; background: var(--amber);"></div>
+      </div>
+    </div>
+
+    <div class="strata-tier-card l1" onclick="focusTier(-0.5)">
+      <div class="tier-header">
+        <span style="color: var(--neon-green);">■ Level 1 (Sorted Strata)</span>
+        <span id="tier-l1-val" style="color: #fff;">0 files</span>
+      </div>
+      <div class="tier-sat-bar">
+        <div class="tier-sat-fill" id="sat-l1" style="width: 0%; background: var(--neon-green);"></div>
+      </div>
+    </div>
+
+    <div class="strata-tier-card l2" onclick="focusTier(-3.5)">
+      <div class="tier-header">
+        <span style="color: var(--violet);">■ Level 2 (High Density)</span>
+        <span id="tier-l2-val" style="color: #fff;">0 files</span>
+      </div>
+      <div class="tier-sat-bar">
+        <div class="tier-sat-fill" id="sat-l2" style="width: 0%; background: var(--violet);"></div>
+      </div>
+    </div>
+
+    <div class="strata-tier-card l3" onclick="focusTier(-6.5)">
+      <div class="tier-header">
+        <span style="color: var(--azure);">■ Level 3 (Deep Archive)</span>
+        <span id="tier-l3-val" style="color: #fff;">0 files</span>
+      </div>
+      <div class="tier-sat-bar">
+        <div class="tier-sat-fill" id="sat-l3" style="width: 0%; background: var(--azure);"></div>
+      </div>
+    </div>
+
+    <!-- Write Amplification Gauge -->
+    <div class="gauge-container">
+      <div class="gauge-header">
+        <span style="color: var(--slate); font-weight: 700;">WRITE AMPLIFICATION (WA)</span>
+        <span id="txt-wa-stat" style="color: var(--neon-green); font-weight: 800;">1.00x</span>
+      </div>
+      <div style="font-size: 9px; color: var(--slate); line-height: 1.4;">
+        WA = Disk Bytes Written / User Bytes Ingested
+      </div>
+    </div>
+
+    <!-- Bloom Filter Lookup Statistics -->
+    <div class="gauge-container">
+      <div class="gauge-header">
+        <span style="color: var(--slate); font-weight: 700;">PROBABILISTIC BLOOM HITS</span>
+        <span id="txt-bloom-hits" style="color: var(--cyan); font-weight: 800;">0 Hits</span>
+      </div>
+      <div style="font-size: 9px; color: var(--slate); line-height: 1.4;">
+        Avoided disk seeks via multi-hash bit vectors
+      </div>
+    </div>
+  </aside>
+
+  <!-- Right Sidebar: Live DB Console & Events -->
+  <aside class="right-panel">
+    <div class="panel-title">
+      <span>Database Operations</span>
+      <span style="font-size: 10px; color: var(--slate);">REST CLIENT</span>
+    </div>
+
+    <!-- Interactive Put Form -->
+    <div>
+      <div style="font-size: 10px; color: var(--slate); text-transform: uppercase;">Write Key-Value</div>
+      <div class="console-input-group >
+        <input type="text" id="input-key" class="cyber-input" placeholder="key:001" style="max-width: 100px;">
+        <input type="text" id="input-val" class="cyber-input" placeholder="payload string...">
+        <button class="cyber-btn" onclick="executePut()">PUT</button>
+      </div>
+    </div>
+
+    <!-- Interactive Get Form -->
+    <div>
+      <div style="font-size: 10px; color: var(--slate); text-transform: uppercase;">Point Lookup</div>
+      <div class="console-input-group">
+        <input type="text" id="input-get-key" class="cyber-input" placeholder="key:001">
+        <button class="cyber-btn green" onclick="executeGet()">GET</button>
+      </div>
+      <div id="get-result" style="font-size: 10px; color: var(--cyan); margin-top: 4px; min-height: 16px;"></div>
+    </div>
+
+    <!-- Flush & Compaction Trigger Buttons -->
+    <div style="display: flex; gap: 6px;">
+      <button class="cyber-btn amber" style="flex: 1;" onclick="executeFlush()">⚡ Flush MemTable</button>
+      <button class="cyber-btn green" style="flex: 1;" onclick="executeCompact()">⚙️ Force Compact</button>
+    </div>
+
+    <div class="panel-title" style="margin-top: 6px;">
+      <span>Workload Generator</span>
+      <span style="font-size: 10px; color: var(--slate);">SIMULATOR</span>
+    </div>
+
+    <div class="workload-grid">
+      <div class="workload-btn active" onclick="setWorkload('balanced')">BALANCED</div>
+      <div class="workload-btn" onclick="setWorkload('write_heavy')">WRITE HEAVY</div>
+      <div class="workload-btn" onclick="setWorkload('read_heavy')">READ HEAVY</div>
+      <div class="workload-btn" onclick="setWorkload('compaction_storm')">COMPACT STORM</div>
+      <div class="workload-btn" onclick="setWorkload('churn_delete')" style="grid-column: span 2;">CHURN & DELETE (TOMBSTONES)</div>
+    </div>
+
+    <div class="panel-title" style="margin-top: 6px;">
+      <span>Compaction Waterfall Feed</span>
+      <span style="font-size: 10px; color: var(--slate);">LIVE LOG</span>
+    </div>
+
+    <div class="events-log" id="compaction-log">
+      <div class="event-item">
+        <span style="color: var(--cyan);">System initialized</span>
+        <span style="color: var(--slate);">Awaiting compaction cascade events...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Bottom Floating Dock -->
+  <footer>
+    <button class="dock-btn active" id="btn-camera-cathedral" onclick="setCameraView('cathedral')">
+      <span>🏛️ Cathedral View</span>
+    </button>
+    <button class="dock-btn" id="btn-camera-memtable" onclick="setCameraView('memtable')">
+      <span>▲ MemTable Summit</span>
+    </button>
+    <button class="dock-btn" id="btn-camera-cascade" onclick="setCameraView('cascade')">
+      <span>🌊 Cascade Cut</span>
+    </button>
+    <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 4px;"></div>
+    <button class="dock-btn" id="btn-rotate" onclick="toggleAutoRotate()">
+      <span>🔄 Orbit Rotate: ON</span>
+    </button>
+    <button class="dock-btn" id="btn-play" onclick="togglePlayPause()">
+      <span>⏸️ Pause Stream</span>
+    </button>
+  </footer>
+
+  <!-- Raycast Tooltip -->
+  <div id="tooltip">
+    <div class="tt-title">
+      <span id="tt-id">SSTABLE #001</span>
+      <span id="tt-tier" style="color: var(--amber);">L0 BUFFER</span>
+    </div>
+    <div>Key Range: <span id="tt-keys" style="color:#fff;">[user:001 .. user:999]</span></div>
+    <div>Total Entries: <span id="tt-entries" style="color:var(--cyan);">128 keys</span></div>
+    <div>Size On Disk: <span id="tt-size" style="color:#fff;">4.2 KB</span></div>
+    <div>Block Count: <span id="tt-blocks" style="color:var(--neon-green);">2 x 4KB Blocks</span></div>
+    <div>Bloom Status: <span id="tt-bloom" style="color:var(--cyan);">Multi-Hash Filter Active</span></div>
+  </div>
+
+  <!-- Local Offline Three.js Bundles -->
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.js"></script>
+
+  <script>
+    // --- 3D SCENE & ENGINE SETUP ---
+    let scene, camera, renderer, controls;
+    let strataGroup, cascadeParticlesGroup;
+    let autoRotate = true;
+    let isPlaying = true;
+    let currentWorkload = "balanced";
+    let raycaster, mouse;
+    let tableMeshes = [];
+
+    const container = document.getElementById("webgl-container");
+    const tooltip = document.getElementById("tooltip");
+
+    function init3D() {
+      scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x07090e, 0.018);
+
+      camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.set(22, 16, 26);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      container.appendChild(renderer.domElement);
+
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.maxPolarAngle = Math.PI / 2.05;
+      controls.autoRotate = autoRotate;
+      controls.autoRotateSpeed = 0.7;
+
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0x00f3ff, 1.6);
+      dirLight.position.set(15, 30, 20);
+      scene.add(dirLight);
+
+      const dirLight2 = new THREE.DirectionalLight(0x7000ff, 1.2);
+      dirLight2.position.set(-15, -15, -20);
+      scene.add(dirLight2);
+
+      // Groups
+      strataGroup = new THREE.Group();
+      scene.add(strataGroup);
+
+      cascadeParticlesGroup = new THREE.Group();
+      scene.add(cascadeParticlesGroup);
+
+      buildGroundPlanes();
+      buildCascadeWaterfalls();
+
+      raycaster = new THREE.Raycaster();
+      mouse = new THREE.Vector2();
+
+      window.addEventListener("resize", onWindowResize);
+      window.addEventListener("mousemove", onMouseMove);
+
+      animate();
+    }
+
+    function buildGroundPlanes() {
+      // Build 4 tiered floating glass strata platforms
+      const tiers = [
+        { y: 6.0, size: 14, color: 0x00f3ff, label: "MEMTABLE SUMMIT" },
+        { y: 2.5, size: 18, color: 0xffaa00, label: "LEVEL 0 BUFFER" },
+        { y: -0.5, size: 22, color: 0x00ff88, label: "LEVEL 1 STRATA" },
+        { y: -3.5, size: 26, color: 0x7000ff, label: "LEVEL 2 STORAGE" },
+        { y: -6.5, size: 30, color: 0x0077ff, label: "LEVEL 3 ARCHIVE" },
+      ];
+
+      tiers.forEach(t => {
+        const grid = new THREE.GridHelper(t.size, 10, t.color, 0x1e293b);
+        grid.position.y = t.y - 0.4;
+        scene.add(grid);
+
+        // Platform perimeter frame
+        const boxGeom = new THREE.BoxGeometry(t.size, 0.1, t.size);
+        const boxMat = new THREE.MeshBasicMaterial({
+          color: t.color,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.15
+        });
+        const platform = new THREE.Mesh(boxGeom, boxMat);
+        platform.position.y = t.y - 0.45;
+        scene.add(platform);
+      });
+    }
+
+    function buildCascadeWaterfalls() {
+      // Flowing compaction waterfall particles between storage tiers
+      const pCount = 150;
+      const geom = new THREE.BufferGeometry();
+      const positions = new Float32Array(pCount * 3);
+      for (let i = 0; i < pCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 16;
+        positions[i * 3 + 1] = 6.0 - Math.random() * 12.0;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 16;
+      }
+      geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const mat = new THREE.PointsMaterial({
+        color: 0x00ff88,
+        size: 0.22,
+        transparent: true,
+        opacity: 0.7,
+        blending: THREE.AdditiveBlending
+      });
+      const points = new THREE.Points(geom, mat);
+      cascadeParticlesGroup.add(points);
+    }
+
+    // --- 3D MESH GENERATION ---
+    const sstableGeo = new THREE.BoxGeometry(2.4, 0.9, 1.6);
+    const memtableNodeGeo = new THREE.CylinderGeometry(0.35, 0.35, 0.6, 16);
+
+    function createSSTableMesh(node) {
+      const mat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color(node.color),
+        metalness: 0.4,
+        roughness: 0.2,
+        emissive: new THREE.Color(node.color),
+        emissiveIntensity: 0.3,
+      });
+
+      const mesh = (node.tier === "memtable") 
+        ? new THREE.Mesh(memtableNodeGeo, mat)
+        : new THREE.Mesh(sstableGeo, mat);
+
+      mesh.position.set(node.x, node.y, node.z);
+      mesh.userData = node;
+      return mesh;
+    }
+
+    function update3DScene(nodes) {
+      while (strataGroup.children.length > 0) {
+        const obj = strataGroup.children[0];
+        strataGroup.remove(obj);
+        if (obj.geometry) obj.geometry.dispose();
+        if (obj.material) obj.material.dispose();
+      }
+      tableMeshes = [];
+
+      nodes.forEach(node => {
+        const mesh = createSSTableMesh(node);
+        strataGroup.add(mesh);
+        tableMeshes.push(mesh);
+      });
+    }
+
+    // --- TELEMETRY & POLLING ---
+    async function fetchTelemetry() {
+      if (!isPlaying) return;
+      try {
+        const res = await fetch(`/api/strata`);
+        if (!res.ok) return;
+        const data = await res.json();
+        renderTelemetry(data.telemetry);
+        update3DScene(data.spatial_nodes);
+      } catch (e) {
+        // Retry silently
+      }
+    }
+
+    function formatBytes(b) {
+      if (b >= 1048576) return (b / 1048576).toFixed(2) + " MB";
+      if (b >= 1024) return (b / 1024).toFixed(1) + " KB";
+      return b + " B";
+    }
+
+    function renderTelemetry(t) {
+      document.getElementById("hud-seq").innerText = "#" + String(t.sequence_num).padStart(4, "0");
+      const mem = t.memtable;
+      document.getElementById("hud-mem").innerText = `${formatBytes(mem.approx_size_bytes)} / ${formatBytes(mem.capacity_bytes)}`;
+      document.getElementById("sat-mem").style.width = Math.min(100, mem.utilization_pct) + "%";
+      document.getElementById("tier-mem-val").innerText = `${mem.entry_count} keys (${mem.utilization_pct}%)`;
+
+      const stats = t.stats;
+      document.getElementById("hud-wa").innerText = stats.write_amplification + "x";
+      document.getElementById("txt-wa-stat").innerText = stats.write_amplification + "x";
+      document.getElementById("hud-disk").innerText = formatBytes(t.storage.total_disk_bytes);
+      document.getElementById("hud-compactions").innerText = stats.compactions_completed + " Runs";
+      document.getElementById("hud-tombstones").innerText = stats.tombstones_evaporated + " Keys";
+      document.getElementById("txt-bloom-hits").innerText = stats.bloom_hits + " Hits";
+
+      // Levels
+      const levels = t.levels || [];
+      levels.forEach(lvl => {
+        const idx = lvl.level;
+        const satEl = document.getElementById("sat-l" + idx);
+        const valEl = document.getElementById("tier-l" + idx + "-val");
+        if (satEl) satEl.style.width = Math.min(100, lvl.saturation_pct) + "%";
+        if (valEl) valEl.innerText = `${lvl.file_count} files (${lvl.saturation_pct}%)`;
+      });
+
+      // Compaction feed
+      if (t.recent_compactions && t.recent_compactions.length > 0) {
+        const log = document.getElementById("compaction-log");
+        log.innerHTML = "";
+        t.recent_compactions.slice(-5).reverse().forEach(c => {
+          const div = document.createElement("div");
+          div.className = "event-item";
+          div.innerHTML = `
+            <span style="color: var(--neon-green); font-weight: 700;">CASCADE: L${c.source_level} ➔ L${c.target_level} (${c.duration_ms}ms)</span>
+            <span style="color: var(--slate);">${formatBytes(c.bytes_read)} read / ${formatBytes(c.bytes_written)} written • ${c.tombstones_dropped} tombstones</span>
+          `;
+          log.appendChild(div);
+        });
+      }
+    }
+
+    // --- INTERACTIVE ACTIONS ---
+    async function executePut() {
+      const k = document.getElementById("input-key").value.trim();
+      const v = document.getElementById("input-val").value.trim() || "val_" + Math.random().toString(36).substring(7);
+      if (!k) return;
+      await fetch(`/api/put?key=${encodeURIComponent(k)}&val=${encodeURIComponent(v)}`);
+      document.getElementById("input-key").value = "";
+      document.getElementById("input-val").value = "";
+      fetchTelemetry();
+    }
+
+    async function executeGet() {
+      const k = document.getElementById("input-get-key").value.trim();
+      if (!k) return;
+      const res = await fetch(`/api/get?key=${encodeURIComponent(k)}`);
+      const data = await res.json();
+      const resEl = document.getElementById("get-result");
+      if (data.found) {
+        resEl.innerHTML = `<span style="color: var(--neon-green);">FOUND:</span> '${data.value}'`;
+      } else {
+        resEl.innerHTML = `<span style="color: var(--crimson);">NOT FOUND</span> (Missing or Deleted)`;
+      }
+    }
+
+    async function executeFlush() {
+      await fetch(`/api/flush`);
+      fetchTelemetry();
+    }
+
+    async function executeCompact() {
+      await fetch(`/api/compact`);
+      fetchTelemetry();
+    }
+
+    async function setCameraView(preset) {
+      document.querySelectorAll("footer .dock-btn").forEach(b => b.classList.remove("active"));
+      if (preset === 'cathedral') {
+        document.getElementById("btn-camera-cathedral").classList.add("active");
+        camera.position.set(22, 16, 26);
+        controls.target.set(0, 0, 0);
+      } else if (preset === 'memtable') {
+        document.getElementById("btn-camera-memtable").classList.add("active");
+        camera.position.set(10, 12, 12);
+        controls.target.set(0, 6.0, 0);
+      } else if (preset === 'cascade') {
+        document.getElementById("btn-camera-cascade").classList.add("active");
+        camera.position.set(20, 2, 22);
+        controls.target.set(0, 1.0, 0);
+      }
+    }
+
+    function toggleAutoRotate() {
+      autoRotate = !autoRotate;
+      controls.autoRotate = autoRotate;
+      document.getElementById("btn-rotate").innerHTML = `<span>🔄 Orbit Rotate: ${autoRotate ? 'ON' : 'OFF'}</span>`;
+    }
+
+    function togglePlayPause() {
+      isPlaying = !isPlaying;
+      document.getElementById("btn-play").innerHTML = `<span>${isPlaying ? '⏸️ Pause Stream' : '▶️ Resume Stream'}</span>`;
+    }
+
+    // --- RAYCASTING MOUSE TOOLTIP ---
+    function onMouseMove(event) {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(tableMeshes);
+
+      if (intersects.length > 0) {
+        const hit = intersects[0].object.userData;
+        tooltip.style.display = "block";
+        tooltip.style.left = (event.clientX + 16) + "px";
+        tooltip.style.top = (event.clientY + 16) + "px";
+
+        document.getElementById("tt-id").innerText = hit.label || hit.id;
+        document.getElementById("tt-tier").innerText = hit.type || hit.tier.toUpperCase();
+        document.getElementById("tt-keys").innerText = hit.label || "[Dynamic]";
+        document.getElementById("tt-entries").innerText = (hit.entries !== undefined ? hit.entries : 1) + " keys";
+        document.getElementById("tt-size").innerText = hit.size_bytes ? formatBytes(hit.size_bytes) : "In-Memory Node";
+        document.getElementById("tt-blocks").innerText = (hit.blocks !== undefined ? hit.blocks : 1) + " x 4KB Blocks";
+      } else {
+        tooltip.style.display = "none";
+      }
+    }
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Waterfall particle stream animation
+      const pos = cascadeParticlesGroup.children[0].geometry.attributes.position.array;
+      for (let i = 1; i < pos.length; i += 3) {
+        pos[i] -= 0.08;
+        if (pos[i] < -7.0) pos[i] = 6.0;
+      }
+      cascadeParticlesGroup.children[0].geometry.attributes.position.needsUpdate = true;
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    // --- INIT ---
+    init3D();
+    fetchTelemetry();
+    setInterval(fetchTelemetry, 1000);
+  </script>
+</body>
+</html>
