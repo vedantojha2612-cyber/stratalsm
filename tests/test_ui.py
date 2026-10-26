@@ -114,7 +114,8 @@ class TestStrataLSMWebServer(unittest.TestCase):
     def test_put_and_get_endpoint(self):
         # PUT
         req_put = urllib.request.urlopen(f"http://127.0.0.1:{self.port}/api/put?key=test_alpha&val=omega_value")
-        self.assertEqual(req.status, 200)
+        self.assertEqual(req_put.status, 200)
+        put_data = json.loads(req_put.read().decode())
         self.assertEqual(put_data["status"], "ok")
 
         # GET
@@ -125,14 +126,20 @@ class TestStrataLSMWebServer(unittest.TestCase):
         self.assertEqual(get_data["value"], "omega_value")
 
     def test_simulate_endpoint(self):
-        req = urllib.request.urlopen(f"http://127.0.0.1:{self.port}/api/status")
+        req = urllib.request.urlopen(f"http://127.0.0.1:{self.port}/api/simulate?workload=write_heavy&count=5")
         self.assertEqual(req.status, 200)
+        data = json.loads(req.read().decode())
+        self.assertIn("stats", data)
+        self.assertGreater(data["stats"]["total_puts"], 0)
 
     def test_index_html_served(self):
         req = urllib.request.urlopen(f"http://127.0.0.1:{self.port}/")
         self.assertEqual(req.status, 200)
         content = req.read().decode()
         self.assertIn("StrataLSM", content)
+        self.assertIn("three.min.js", content)
+        self.assertIn("OrbitControls.js", content)
+
 
 if __name__ == "__main__":
     unittest.main()

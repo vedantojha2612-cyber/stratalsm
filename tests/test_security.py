@@ -78,12 +78,11 @@ class TestStrataLSMSecurity(unittest.TestCase):
             for f in files:
                 if not f.endswith(".py"):
                     continue
-                file_path = os.path.join(root, f)
+               file_path = os.path.join(root, f)
                 with open(file_path, "r", encoding="utf-8") as fh:
                     for line_no, line in enumerate(fh, 1):
                         for pattern in forbidden_calls:
-                            self.assertIsNone(
-                                pattern.search(line),
+                            self.assertIsNone(J                                pattern.search(line),
                                 f"Forbidden execution sink found at {file_path}:{line_no}: {line.strip()}"
                             )
 
@@ -100,7 +99,7 @@ class TestStrataLSMSecurity(unittest.TestCase):
 
             with self.assertRaises(ValueError) as ctx:
                 SSTableReader(corrupt_sst)
-            self.assertIn("Invalid SSTable magic", str(ctx.exception))
+            self.assertIn("Invalid STTable magic", str(ctx.exception))
 
             # 2. Test out-of-bounds index offset
             oob_footer = struct.pack(FOOTER_FORMAT, 999999, 100, 0, 10, 1, SST_MAGIC)
@@ -135,61 +134,41 @@ class TestStrataLSMSecurity(unittest.TestCase):
 
             # Corrupt the second frame by appending garbage bytes
             with open(wal_file, "a+b") as f:
-                f.write(b"\xDE\xAD\xBE\xEF\x00\x01\x02\x03")
+                f.write(b"\xWQ‘WQ—W—ÈŠB‚ˆ™XÛİ™\™YH\İ
+Üš]PZXYÙËœ™XÛİ™\ŠØ[Ùš[JJBˆÈš\œİœ˜[YHÚİ[™H™XÛİ™\™YÛÜœ\Yœ˜[YHØY™[HYÛ›Ü™YˆÙ[‹˜\ÜÙ\\]X[
+[Š™XÛİ™\™Y
+KŠBˆÙ[‹˜\ÜÙ\\]X[
+™XÛİ™\™YÌKšÙ^KˆšÙ^LHŠBˆÙ[‹˜\ÜÙ\\]X[
+™XÛİ™\™YÌWKšÙ^KˆšÙ^LˆŠB‚ˆYˆ\İİÙX—ÚYÛİØ\ÜÚXY\œ×Ø[™ÜØ[š]^˜][ÛŠÙ[ŠN‚ˆˆˆ•™\šYH[™Ú[È™]\›ˆ›Ü\ˆÕĞTÔÙXİ\š]HXY\œÈ[™™\Ú\İ]Y\H[š™Xİ[ÛœËˆˆˆ‚ˆÙ\™\ˆH™XYYÙ\™\Š
+ŒLËŒŒŒH‹
+Kİ˜]SÓR[™\ŠBˆÜHÙ\™\‹œÙ\™\—ØY™\ÜÖÌWBˆH™XY[™Ë•™XY
+\™Ù]\Ù\™\‹œÙ\™WÙ›Ü™]™\‹Y[[ÛUYJBˆœİ\
 
-            recovered = list(WriteAheadLog.recover(wal_file))
-            # First frame should be recovered, corrupted frame safely ignored
-            self.assertEqual(len(recovered), 2)
-            self.assertEqual(recovered[0].key, b"key1")
-            self.assertEqual(recovered[1].key, b"key2")
-
-    def test_web_hud_owasp_headers_and_sanitization(self):
-        """Verify HTTP endpoints return proper OWASP security headers and resist query injections."""
-        server = ThreadedHTTPServer(("127.0.0.1", 0), StrataLSMHTTPHandler)
-        port = server.server_address[1]
-        t = threading.Thread(target=server.serve_forever, daemon=True)
-        t.start()
-        time.sleep(0.1)
-
-        try:
-            # 1. Test /api/status headers
-            req = urllib.request.Request(f"http://127.0.0.1:{port}/api/status")
-            with urllib.request.urlopen(req, timeout=3) as res:
-                self.assertEqual(res.status, 200)
-                headers = dict(res.headers)
-                self.assertEqual(headers.get("X-Content-Type-Options"), "nosniff")
-                self.assertEqual(headers.get("X-Frame-Options"), "SAMEORIGIN")
-
-            # 2. Test injection vectors on /api/simulate
-            malicious_urls = [
-                f"http://127.0.0.1:{self.port}/api/simulate?workload=DROP_DATABASE&count=NaN",
-                f"http://127.0.0.1:{port}/api/simulate?workload=../../etc/passwd&count=-999",
-                f"http://127.0.0.1:{self.port}/api/simulate?workload=%00&count=9999999",
-            ]
-            for url in malicious_urls:
-                req = urllib.request.Request(url)
-                with urllib.request.urlopen(req, timeout=3) as res:
-                    self.assertEqual(res.status, 200)
-
-            # 3. Test missing parameters on /api/put and /api/get
-            req = urllib.request.Request(f"http://127.0.0.1:{port}/api/get")
-            try:
-                urllib.request.urlopen(req, timeout=3)
-            except urllib.error.HTTPError as e:
-                self.assertEqual(e.code, 400)
-
-        finally:
-            server.shutdown()
-            server.server_close()
-
-    def test_unprivileged_safe_execution(self):
-        """Verify the storage engine initializes and operates in unprivileged user space."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            db = StrataLSM(db_dir=tmpdir)
-            self.assertTrue(db.put("unprivileged_key", "test_value"))
-            self.assertEqual(db.get("unprivileged_key"), b"test_value")
-            db.close()
-
-
-if __name__ == "__main__":
-    unittest.main()
+Bˆ[YKœÛY\
+ŒJB‚ˆN‚ˆÈKˆ\İØ\KÜİ]\ÈXY\œÂˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
+ˆš‹ËÌLËŒŒŒNÜÜKØ\KÜİ]\ÈŠBˆÚ]\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊH\È™\Î‚ˆÙ[‹˜\ÜÙ\\]X[
+™\Ëœİ]\ËŒ
+BˆXY\œÈHXİ
+™\ËšXY\œÊBˆÙ[‹˜\ÜÙ\\]X[
+XY\œË™Ù]
+–PÛÛ[U\KSÜ[ÛœÈŠK››ÜÛšY™ˆŠBˆÙ[‹˜\ÜÙ\\]X[
+XY\œË™Ù]
+–Qœ˜[YKSÜ[ÛœÈŠK”ĞSQSÔ’QÒSˆŠBˆÙ[‹˜\ÜÙ\[ŠÛÛ[TÙXİ\š]KTÛXŞH‹XY\œÊBˆÙ[‹˜\ÜÙ\\]X[
+XY\œË™Ù]
+”™Y™\œ™\‹TÛXŞHŠKœİšXİ[ÜšYÚ[‹]Ú[‹XÜ›ÜÜË[ÜšYÚ[ˆŠB‚ˆÈ‹ˆ\İ[š™Xİ[Ûˆ™XİÜœÈÛˆØ\KÜÚ[][]BˆX[XÚ[İ\×İ\›ÈHÂˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYQ“ÔÑUPTÑI˜Ûİ[S˜Sˆ‹ˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYK‹‹Ë‹‹Ù]ËÜ\ÜİÙ	˜Ûİ[KNNNH‹ˆˆš‹ËÌLËŒŒŒNÜÜKØ\KÜÚ[][]OİÛÜšÛØYIL	˜Ûİ[NNNNNNNH‹ˆBˆ›Üˆ\›[ˆX[XÚ[İ\×İ\›Î‚ˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
+\›
+BˆÚ]\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊH\È™\Î‚ˆÙ[‹˜\ÜÙ\\]X[
+™\Ëœİ]\ËŒ
+BˆÙ[‹˜\ÜÙ\[Š˜\XØ][Û‹ÚœÛÛˆ‹™\ËšXY\œË™Ù]
+ÛÛ[U\H‹ˆŠJB‚ˆÈËˆ\İZ\ÜÚ[™È\˜[Y]\œÈÛˆØ\KÜ][™Ø\KÙÙ]ˆ™\HH\›X‹œ™\]Y\İ”™\]Y\İ
+ˆš‹ËÌLËŒŒŒNÜÜKØ\KÙÙ]ŠBˆN‚ˆ\›X‹œ™\]Y\İ\›Ü[Š™\K[Y[İ]LÊBˆ^Ù\\›X‹™\œ›Ü‹’\œ›Üˆ\ÈN‚ˆÙ[‹˜\ÜÙ\\]X[
+K˜ÛÙK
+B‚ˆš[˜[N‚ˆÙ\™\‹œÚ]İÛŠ
+BˆÙ\™\‹œÙ\™\—ØÛÜÙJ
+B‚ˆYˆ\İİ[œš]š[YÙYÜØY™WÙ^Xİ][ÛŠÙ[ŠN‚ˆˆˆ•™\šYHHİÜ˜YÙH[™Ú[™H[š]X[^™\È[™Ü\˜]\È[ˆ[œš]š[YÙY\Ù\ˆÜXÙKˆˆˆ‚ˆÚ][\š[K•[\Ü˜\Q\™XİÜJ
+H\È\\‚ˆˆHİ˜]SÓJ—Ù\]\\ŠBˆÙ[‹˜\ÜÙ\YJ‹œ]
+[œš]š[YÙYÚÙ^H‹\İİ˜[YHŠJBˆÙ[‹˜\ÜÙ\\]X[
+‹™Ù]
+[œš]š[YÙYÚÙ^HŠKˆ\İİ˜[YHŠBˆ‹˜ÛÜÙJ
+B‚‚šYˆ×Û˜[YW×ÈOH—×ÛXZ[—×È‚ˆ[š]\İ›XZ[Š
+B
