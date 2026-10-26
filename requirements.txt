@@ -1,0 +1,4 @@
+# StrataLSM Core Requirements
+# The core storage engine uses Python 3.10+ standard library (os, sys, struct, bisect, hashlib, socket, http.server, json, time, threading)
+# Optional dependencies for development, benchmarking, and CI:
+pytest>=7.0.0

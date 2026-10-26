@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stratalsm"
+version = "1.0.0"
+description = "Real-Time 3D LSM-Tree Storage Engine & Compaction Cascade Hologram with Three.js WebGL and Cyberpunk Braille Radar"
+readme = "README.md"
+authors = [
+    { name = "Saarthak Ojha", email = "vedantojha2612@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+    "lsm-tree",
+    "storage-engine",
+    "compaction",
+    "sstable",
+    "memtable",
+    "skiplist",
+    "bloom-filter",
+    "write-ahead-log",
+    "threejs",
+    "webgl",
+    "terminal-graphics",
+    "braille-radar",
+    "cyberpunk",
+    "database-internals",
+    "systems-programming"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Database :: Database Engines/Servers",
+    "Topic :: System :: Monitoring",
+    "Topic :: Scientific/Engineering :: Visualization"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0"
+]
+
+[project.scripts]
+stratalsm = "cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vedantojha2612-cyber/stratalsm"
+Repository = "https://github.com/vedantojha2612-cyber/stratalsm"
+IssueTracker = "https://github.com/vedantojha2612-cyber/stratalsm/issues"
